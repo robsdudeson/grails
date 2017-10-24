@@ -1,6 +1,11 @@
 FROM openjdk:8-jdk-alpine
 MAINTAINER Robby Thompson <robsdudeson@gmail.com>
 
+#do stuff in alpine
+RUN apk update \
+    && apk add ca-certificates wget \
+    && update-ca-certificates
+
 # Set customizable env vars defaults.
 # Set Grails version (default: 3.2.8; min: 3.0.0; max: 3.2.8).
 ENV GRAILS_VERSION 3.2.8
